@@ -1,10 +1,6 @@
 "use client";
 import React from "react";
 import { Button } from "./ui/button";
-import { buttonVariants } from "./ui/button";
-import { FormEvent } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -12,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { PersonIcon } from "@radix-ui/react-icons";
 import { LockClosedIcon } from "@radix-ui/react-icons";
 import { LogInIcon } from "lucide-react";
-import { Label, TextInput } from "flowbite-react";
+import { TextInput } from "flowbite-react";
 
 const Login = () => {
   const session = useSession();
@@ -21,7 +17,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     signIn("credentials", { email, password });
   };

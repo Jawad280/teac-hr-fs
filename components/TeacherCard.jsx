@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Teacher } from "@/types/main";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,11 +7,7 @@ import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { mutate } from "swr";
 
-type TeacherCardProps = {
-  teacher: Teacher; // Specify the type of the teacher prop
-};
-
-const TeacherCard: React.FC<TeacherCardProps> = ({ teacher }) => {
+const TeacherCard = ({ teacher }) => {
   const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const [name, setName] = useState(teacher.name);
   const [email, setEmail] = useState(teacher.email);

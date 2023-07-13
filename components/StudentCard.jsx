@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { Student } from "@/types/main";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,11 +7,7 @@ import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { mutate } from "swr";
 
-type StudentCardProps = {
-  student: Student;
-};
-
-const StudentCard: React.FC<StudentCardProps> = ({ student }) => {
+const StudentCard = ({ student }) => {
   const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const router = useRouter();
 

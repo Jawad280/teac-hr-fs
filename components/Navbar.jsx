@@ -12,7 +12,7 @@ const Navbar = () => {
   const currentPath = usePathname();
   const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
 
-  const isActiveLink = (href: string) => {
+  const isActiveLink = (href) => {
     return currentPath === href;
   };
 
