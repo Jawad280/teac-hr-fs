@@ -15,9 +15,7 @@ const CreateClassroomPage = () => {
   const [selectedStudents, setSelectedStudents] = useState([]);
   const [name, setName] = useState("");
 
-  console.log(teacher);
-  console.log(selectedStudents);
-
+  // eslint-disable-next-line
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
