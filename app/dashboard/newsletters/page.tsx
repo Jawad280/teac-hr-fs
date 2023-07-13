@@ -18,7 +18,7 @@ import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { mutate } from "swr";
 
-const page = () => {
+const NewsletterPage = () => {
   const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const session = useSession();
   const router = useRouter();
@@ -96,4 +96,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default NewsletterPage;

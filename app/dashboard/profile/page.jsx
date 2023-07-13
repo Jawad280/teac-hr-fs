@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { mutate } from "swr";
 
-const page = () => {
+const ProfilePage = () => {
     const session = useSession();
     const teacher = session.data?.user?.name;
     const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -107,4 +107,4 @@ const page = () => {
   )
 }
 
-export default page
+export default ProfilePage

@@ -9,7 +9,7 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { useToast } from '@/components/ui/use-toast';
 import { TrashIcon } from '@radix-ui/react-icons';
 
-const page = ({params}) => {
+const IndividualNewsletterPage = ({params}) => {
 
     const id = params.id;
     const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -133,4 +133,4 @@ const page = ({params}) => {
   )
 }
 
-export default page
+export default IndividualNewsletterPage

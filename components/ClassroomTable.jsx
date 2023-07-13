@@ -29,7 +29,7 @@ const ClassroomTable = () => {
       return (
         <div className='box-border flex gap-8 flex-wrap justify-start'>
           {currTeacher?.classrooms?.map((classroom) => (
-            <Link href={`${apiUrl}/dashboard/classrooms/${classroom.id}`}>
+            <Link href={`${apiUrl}/dashboard/classrooms/${classroom.id}`} key={classroom.id}>
               <ClassroomCard classroom={classroom}/>
             </Link>
           ))}

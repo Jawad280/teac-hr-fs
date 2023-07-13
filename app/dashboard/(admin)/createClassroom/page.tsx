@@ -8,7 +8,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-const page = () => {
+const CreateClassroomPage = () => {
   const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const router = useRouter();
   const [teacher, setTeacher] = useState("");
@@ -90,4 +90,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CreateClassroomPage;

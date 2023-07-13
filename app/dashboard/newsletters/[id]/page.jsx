@@ -29,8 +29,11 @@ const NewsletterIndividual = ({params}) => {
 
   const sortedSections = fetchedSections?.sort((a, b) => a.position - b.position);
 
+  const { data: teacherSections, error: teacherSectionsError, isLoading: teacherSectionsIsLoading } = useSWR(`${apiUrl}/api/teachers/${currTeacher.id}`, fetcher);
+
+  const currSections = teacherSections?.sections.filter((sect) => sect.nId === id);
+
   const [sections, setSections] = useState(sortedSections || []);
-  console.log(sections);
 
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -130,15 +133,15 @@ const NewsletterIndividual = ({params}) => {
 
   if (!currTeacher.isAdmin) {
 
-    const fetcher = (...args) => fetch(...args).then((res) => res.json());
-    const { data, error, isLoading } = useSWR(`${apiUrl}/api/teachers/${currTeacher.id}`, fetcher);
+    // const fetcher = (...args) => fetch(...args).then((res) => res.json());
+    // const { data, error, isLoading } = useSWR(`${apiUrl}/api/teachers/${currTeacher.id}`, fetcher);
 
-    const currSections = data?.sections.filter((sect) => sect.nId === id);
+    // const currSections = data?.sections.filter((sect) => sect.nId === id);
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    // const [title, setTitle] = useState('');
+    // const [content, setContent] = useState('');
 
-    const [create, setCreate] = useState(false);
+    // const [create, setCreate] = useState(false);
 
     const handleSection = async (e) => {
       e.preventDefault();
@@ -218,9 +221,9 @@ const NewsletterIndividual = ({params}) => {
         </div>
         
         {currSections?.map((sect) => (
-          <div className='box-border w-full'>
+          <div className='box-border w-full' key={sect.id}>
             <Link href={`${apiUrl}/dashboard/newsletters/sections/${sect.id}`}> 
-              <SectionCard section={sect} key={sect.id}/> 
+              <SectionCard section={sect} /> 
             </Link>
           </div>
           
