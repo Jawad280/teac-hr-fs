@@ -16,7 +16,7 @@ const CreateClassroomPage = () => {
   const [name, setName] = useState("");
 
   // eslint-disable-next-line
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newClassroom = {
