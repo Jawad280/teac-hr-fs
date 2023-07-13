@@ -18,7 +18,7 @@ const CreateClassroomPage = () => {
   console.log(teacher);
   console.log(selectedStudents);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const newClassroom = {
