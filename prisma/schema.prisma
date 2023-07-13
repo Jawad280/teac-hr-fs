@@ -1,0 +1,83 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Teacher {
+  id         String      @id @default(uuid())
+  name       String
+  phone      String
+  email      String      @unique
+  password   String
+  isAdmin    Boolean?
+  createdAt  DateTime    @default(now())
+  classrooms Classroom[] @relation()
+  sections   Section[]
+}
+
+model Resource {
+  id        String   @id @default(uuid())
+  name      String
+  url       String
+  createdAt DateTime @default(now())
+}
+
+model Newsletter {
+  id        String    @id @default(uuid())
+  name      String
+  sections  Section[]
+  createdAt DateTime  @default(now())
+}
+
+model Section {
+  id           String      @id @default(uuid())
+  title        String
+  content      String
+  createdAt    DateTime    @default(now())
+  createdBy    String?
+  teacherId    String?
+  nId          String?
+  Newsletter   Newsletter? @relation(fields: [newsletterId], references: [id])
+  newsletterId String?
+  Teacher      Teacher?    @relation(fields: [teacherId], references: [id])
+}
+
+model Classroom {
+  id        String    @id @default(uuid())
+  name      String
+  createdAt DateTime  @default(now())
+  Teacher   Teacher?  @relation(fields: [teacherId], references: [id])
+  teacherId String?
+  students  Student[] @relation()
+}
+
+model Student {
+  id          String       @id @default(uuid())
+  name        String
+  dob         DateTime
+  nokName     String
+  nokNumber   String
+  address     String
+  createdAt   DateTime     @default(now())
+  Classroom   Classroom?   @relation(fields: [classroomId], references: [id])
+  classroomId String?
+  attendances Attendance[]
+
+  @@unique([name, dob, address])
+}
+
+model Attendance {
+  id               String   @id @default(uuid())
+  createdAt        DateTime @default(now())
+  isPresent        Boolean
+  reasonForAbsence String?
+  student          Student  @relation(fields: [studentId], references: [id])
+  studentId        String
+}
