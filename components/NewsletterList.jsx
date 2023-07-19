@@ -16,6 +16,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Trash2 } from 'lucide-react';
 
 const NewsletterList = ({ isAdmin }) => {
 
@@ -51,7 +52,7 @@ const NewsletterList = ({ isAdmin }) => {
     }
 
   return (
-    <div className='box-border w-3/5'>
+    <div className='box-border w-full'>
         <Table striped>
             <Table.Head>
                 <Table.HeadCell>
@@ -80,7 +81,7 @@ const NewsletterList = ({ isAdmin }) => {
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{index+1}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{newsletter.name}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            <Link href={`${apiUrl}/dashboard/newsletters/${newsletter.id}`}>
+                            <Link href={`${apiUrl}/dashboard/ns/${newsletter.id}`}>
                                 <BookOpenIcon />
                             </Link>
                         </Table.Cell>
@@ -89,7 +90,8 @@ const NewsletterList = ({ isAdmin }) => {
                                 <div>
                                     <AlertDialog>
                                         <AlertDialogTrigger>
-                                            <Image src="/trash.svg" width={20} height={20} alt='delete'/>
+                                            {/* <Image src="/trash.svg" width={20} height={20} alt='delete'/> */}
+                                            <Trash2 width={22} height={22} color='red'/>
                                         </AlertDialogTrigger>
 
                                         <AlertDialogContent>

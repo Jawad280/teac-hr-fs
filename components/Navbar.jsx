@@ -58,9 +58,9 @@ const Navbar = () => {
           </Link>
 
           <Link
-            href="/dashboard/newsletters"
+            href="/dashboard/ns"
             className={
-              isActiveLink("/dashboard/newsletters")
+              isActiveLink("/dashboard/ns")
                 ? buttonVariants({ variant: "linkChosen" })
                 : buttonVariants({ variant: "link" })
             }
@@ -118,9 +118,9 @@ const Navbar = () => {
         </Link>
 
         <Link
-          href="/dashboard/newsletters"
+          href="/dashboard/ns"
           className={
-            isActiveLink("/dashboard/newsletters")
+            isActiveLink("/dashboard/ns")
               ? buttonVariants({ variant: "linkChosen" })
               : buttonVariants({ variant: "link" })
           }

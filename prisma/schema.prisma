@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("POSTGRES_PRISMA_URL")
+  url      = env("DATABASE_URL")
 }
 
 model Teacher {
@@ -19,7 +19,6 @@ model Teacher {
   isAdmin    Boolean?
   createdAt  DateTime    @default(now())
   classrooms Classroom[] @relation()
-  sections   Section[]
 }
 
 model Resource {
@@ -39,14 +38,16 @@ model Newsletter {
 model Section {
   id           String      @id @default(uuid())
   title        String
-  content      String
+  subtitle     String?
+  content      String?
+  index        Int?
   createdAt    DateTime    @default(now())
   createdBy    String?
-  teacherId    String?
-  nId          String?
+  gallery      String[]
+  isImage      Boolean?
+  isCover      Boolean?
   Newsletter   Newsletter? @relation(fields: [newsletterId], references: [id])
   newsletterId String?
-  Teacher      Teacher?    @relation(fields: [teacherId], references: [id])
 }
 
 model Classroom {
@@ -59,16 +60,20 @@ model Classroom {
 }
 
 model Student {
-  id          String       @id @default(uuid())
-  name        String
-  dob         DateTime
-  nokName     String
-  nokNumber   String
-  address     String
-  createdAt   DateTime     @default(now())
-  Classroom   Classroom?   @relation(fields: [classroomId], references: [id])
-  classroomId String?
-  attendances Attendance[]
+  id           String       @id @default(uuid())
+  name         String
+  dob          DateTime
+  dadName      String?
+  dadNumber    String?
+  momName      String?
+  momNumber    String?
+  helperName   String?
+  helperNumber String?
+  address      String
+  createdAt    DateTime     @default(now())
+  Classroom    Classroom?   @relation(fields: [classroomId], references: [id])
+  classroomId  String?
+  attendances  Attendance[]
 
   @@unique([name, dob, address])
 }
@@ -77,6 +82,7 @@ model Attendance {
   id               String   @id @default(uuid())
   createdAt        DateTime @default(now())
   isPresent        Boolean
+  temperature      String?
   reasonForAbsence String?
   student          Student  @relation(fields: [studentId], references: [id])
   studentId        String

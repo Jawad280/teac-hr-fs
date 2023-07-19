@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+    images: {
+        domains: [
+            "res.cloudinary.com"
+        ]
+    }
+}
 
 const withTM = require("next-transpile-modules")(["bcrypt"]);
 

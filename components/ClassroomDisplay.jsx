@@ -16,12 +16,17 @@ import {
   } from "@/components/ui/alert-dialog";
 import { useRouter } from 'next/navigation';
 import { mutate } from 'swr';
+import { useSession } from 'next-auth/react';
 
 const ClassroomDisplay = ({classroom }) => {
     const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
     const router = useRouter();
     const teacher = classroom.Teacher;
     const students = classroom.students?.sort((a, b) => a.name.localeCompare(b.name));
+
+    const session = useSession();
+
+    const currTeacher = session.data.user?.name;
 
     const [today, setToday] = useState(new Date());
 
@@ -88,7 +93,7 @@ const ClassroomDisplay = ({classroom }) => {
 
         <div className='flex flex-col gap-6 box-border'>
 
-            {teacher.isAdmin && (
+            {currTeacher.isAdmin && (
                 <div className='flex gap-4 box-border justify-between'>
                     <Button variant={'add'}>
                         <PlusIcon className='mr-2 h-4 w-4'/> Add a Student

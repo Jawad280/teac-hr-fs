@@ -19,8 +19,7 @@ export async function GET(req, {params}) {
                     },
                     Teacher: true,
                 }
-            },
-            sections: true
+            }
         }
     });
     return NextResponse.json(teacher);

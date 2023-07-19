@@ -61,10 +61,25 @@ const StudentTable = () => {
                     Name
                 </Table.HeadCell>
                 <Table.HeadCell>
-                    Parents/Guardian Name
+                    Date Of Birth
                 </Table.HeadCell>
                 <Table.HeadCell>
-                    Parents/Guardian Phone
+                    Father Name
+                </Table.HeadCell>
+                <Table.HeadCell>
+                    Father Phone
+                </Table.HeadCell>
+                <Table.HeadCell>
+                    Mother Name
+                </Table.HeadCell>
+                <Table.HeadCell>
+                    Mother Phone
+                </Table.HeadCell>
+                <Table.HeadCell>
+                    Helper Name
+                </Table.HeadCell>
+                <Table.HeadCell>
+                    Helper Phone
                 </Table.HeadCell>
                 <Table.HeadCell>
                     Address
@@ -85,8 +100,13 @@ const StudentTable = () => {
                     <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={student.id}>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{index+1}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.name}</Table.Cell>
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.nokName}</Table.Cell>
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.nokNumber}</Table.Cell>
+                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{new Date(student.dob).toLocaleString('en-GB', { timeZone: 'UTC', day: '2-digit', month: '2-digit', year: 'numeric' })}</Table.Cell>
+                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.dadName}</Table.Cell>
+                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.dadNumber}</Table.Cell>
+                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.momName}</Table.Cell>
+                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.momNumber}</Table.Cell>
+                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.helperName}</Table.Cell>
+                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.helperNumber}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.address}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                             <Link href={`${apiUrl}/dashboard/students/${student.id}`}>

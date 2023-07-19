@@ -14,8 +14,16 @@ const Students = () => {
 
   const [name, setName] = useState('');
   const [dob, setDob] = useState('');
-  const [nokName, setNokName] = useState('');
-  const [nokNumber, setNokNumber] = useState('');
+
+  const [dadName, setDadName] = useState('');
+  const [dadNumber, setDadNumber] = useState('');
+
+  const [momName, setMomName] = useState('');
+  const [momNumber, setMomNumber] = useState('');
+
+  const [helperName, setHelperName] = useState('');
+  const [helperNumber, setHelperNumber] = useState('');
+
   const [address, setAddress] = useState('');
 
   const handleSubmit = async (e) => {
@@ -24,8 +32,12 @@ const Students = () => {
     const newStudent = {
       name: name,
       dob: new Date(dob),
-      nokName: nokName,
-      nokNumber: nokNumber,
+      dadName: dadName,
+      dadNumber: dadNumber,
+      momName: momName,
+      momNumber: momNumber,
+      helperName: helperName,
+      helperNumber: helperNumber,
       address: address
     }
 
@@ -40,8 +52,12 @@ const Students = () => {
       .then(() => {
         setName('')
         setDob('')
-        setNokName('')
-        setNokNumber('')
+        setDadName('')
+        setDadNumber('')
+        setMomName('')
+        setMomNumber('')
+        setHelperName('')
+        setHelperNumber('')
         setAddress('')
         setCreate(false)
       })
@@ -66,14 +82,34 @@ const Students = () => {
           </div>  
 
           <div className="grid w-full max-w-sm items-center gap-3">
-            <Label htmlFor="nokName">Parent/Guardian Name</Label>
-            <Input type="text" id="nokName" placeholder="Enter Parent/Guardian Name" value={nokName} onChange={(e) => setNokName(e.target.value)} required/>
+            <Label htmlFor="dadName">Father's Name</Label>
+            <Input type="text" id="dadName" placeholder="Enter Father's Name" value={dadName} onChange={(e) => setDadName(e.target.value)} required/>
           </div>   
 
           <div className="grid w-full max-w-sm items-center gap-3">
-            <Label htmlFor="nokNumber">Parent/Guardian Number</Label>
-            <Input type="text" id="nokNumber" placeholder="Enter Parent/Guardian Number" value={nokNumber} onChange={(e) => setNokNumber(e.target.value)} required/>
+            <Label htmlFor="dadNumber">Father's Number</Label>
+            <Input type="text" id="dadNumber" placeholder="Enter Father's Number" value={dadNumber} onChange={(e) => setDadNumber(e.target.value)} required/>
+          </div>
+          
+          <div className="grid w-full max-w-sm items-center gap-3">
+            <Label htmlFor="momName">Mother's Name</Label>
+            <Input type="text" id="momName" placeholder="Enter Mother's Name" value={momName} onChange={(e) => setMomName(e.target.value)} required/>
           </div>   
+
+          <div className="grid w-full max-w-sm items-center gap-3">
+            <Label htmlFor="momNumber">Father's Number</Label>
+            <Input type="text" id="momNumber" placeholder="Enter Mother's Number" value={momNumber} onChange={(e) => setMomNumber(e.target.value)} required/>
+          </div>   
+
+          <div className="grid w-full max-w-sm items-center gap-3">
+            <Label htmlFor="helperName">Helper's Name</Label>
+            <Input type="text" id="helperName" placeholder="Enter Helper's Name" value={helperName} onChange={(e) => setHelperName(e.target.value)} required/>
+          </div>   
+
+          <div className="grid w-full max-w-sm items-center gap-3">
+            <Label htmlFor="helperNumber">Helper's Number</Label>
+            <Input type="text" id="helperNumber" placeholder="Enter Helper's Number" value={helperNumber} onChange={(e) => setHelperNumber(e.target.value)} required/>
+          </div> 
 
           <div className="grid w-full max-w-sm items-center gap-3">
             <Label htmlFor="address">Address</Label>

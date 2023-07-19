@@ -13,24 +13,18 @@ export async function GET(req, {params}) {
     return NextResponse.json(section);
 }
 
-// UPDATE section by ID 
+// UPDATE section by ID
 export async function PATCH(req, { params }) {
     const id = params.id;
     const inputs = await req.json();
-  
-    const section = await db.section.findUnique({
-      where: {
-        id: id,
-      }
-    });
   
     const updatedSection = await db.section.update({
       where: { id: id },
       data: inputs
     });
-  
+
     return NextResponse.json(updatedSection);
-}
+  }
 
 // DELETE section by ID
 export async function DELETE(req, {params}) {

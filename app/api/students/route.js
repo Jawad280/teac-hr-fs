@@ -31,8 +31,12 @@ export async function POST(req) {
   const studentData = {
     name: inputs.name,
     dob: inputs.dob,
-    nokName: inputs.nokName,
-    nokNumber: inputs.nokNumber,
+    dadName: inputs.dadName,
+    dadNumber: inputs.dadNumber,
+    momName: inputs.momName,
+    momNumber: inputs.momNumber,
+    helperName: inputs.helperName,
+    helperNumber: inputs.helperNumber,
     address: inputs.address,
   };
 

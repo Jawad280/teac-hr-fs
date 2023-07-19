@@ -13,8 +13,16 @@ const StudentCard = ({ student }) => {
 
   const [name, setName] = useState(student.name);
   const [dob, setDob] = useState(student.dob);
-  const [nokName, setNokName] = useState(student.nokName);
-  const [nokNumber, setNokNumber] = useState(student.nokNumber);
+
+  const [dadName, setDadName] = useState(student.dadName);
+  const [dadNumber, setDadNumber] = useState(student.dadNumber);
+
+  const [momName, setMomName] = useState(student.momName);
+  const [momNumber, setMomNumber] = useState(student.momNumber);
+
+  const [helperName, setHelperName] = useState(student.helperName);
+  const [helperNumber, setHelperNumber] = useState(student.helperNumber);
+
   const [address, setAddress] = useState(student.address);
 
   const handleUpdate = async (e) => {
@@ -22,9 +30,13 @@ const StudentCard = ({ student }) => {
 
     const updatedStudent = {
       name: name,
-      dob: dob,
-      nokName: nokName,
-      nokNumber: nokNumber,
+      dob: new Date(dob),
+      dadName: dadName,
+      dadNumber: dadNumber,
+      momName: momName,
+      momNumber: momNumber,
+      helperName: helperName,
+      helperNumber: helperNumber,
       address: address,
     };
 
@@ -71,25 +83,73 @@ const StudentCard = ({ student }) => {
           />
         </div>
 
+        <div className="box-border w-full flex gap-3">
+          <div className="grid w-full max-w-sm items-center gap-3">
+            <Label htmlFor="dadName">Father Name</Label>
+            <Input
+              type="text"
+              id="dadName"
+              placeholder="Enter Father's Name"
+              value={dadName}
+              onChange={(e) => setDadName(e.target.value)}
+            />
+          </div>
+
+          <div className="grid w-full max-w-sm items-center gap-3">
+            <Label htmlFor="dadNumber">Father Number</Label>
+            <Input
+              type="text"
+              id="dadNumber"
+              placeholder="Enter Father's Number"
+              value={dadNumber}
+              onChange={(e) => setDadNumber(e.target.value)}
+            />
+          </div>
+        </div>
+
+
+
         <div className="grid w-full max-w-sm items-center gap-3">
-          <Label htmlFor="nokName">Parent/Guardian Name</Label>
+          <Label htmlFor="momName">Mother's Name</Label>
           <Input
             type="text"
-            id="nokName"
-            placeholder="Enter Parent/Guardian Name"
-            value={nokName}
-            onChange={(e) => setNokName(e.target.value)}
+            id="momName"
+            placeholder="Enter Father's Name"
+            value={momName}
+            onChange={(e) => setMomName(e.target.value)}
           />
         </div>
 
         <div className="grid w-full max-w-sm items-center gap-3">
-          <Label htmlFor="nokNumber">Parent/Guardian Number</Label>
+          <Label htmlFor="momNumber">Mother's Number</Label>
           <Input
             type="text"
-            id="nokNumber"
-            placeholder="Enter Parent/Guardian Number"
-            value={nokNumber}
-            onChange={(e) => setNokNumber(e.target.value)}
+            id="momNumber"
+            placeholder="Enter Mother's Number"
+            value={momNumber}
+            onChange={(e) => setMomNumber(e.target.value)}
+          />
+        </div>
+
+        <div className="grid w-full max-w-sm items-center gap-3">
+          <Label htmlFor="helperName">Helper's Name</Label>
+          <Input
+            type="text"
+            id="helperName"
+            placeholder="Enter Helper's Name"
+            value={helperName}
+            onChange={(e) => setHelperName(e.target.value)}
+          />
+        </div>
+
+        <div className="grid w-full max-w-sm items-center gap-3">
+          <Label htmlFor="helperNumber">Helper's Number</Label>
+          <Input
+            type="text"
+            id="helperNumber"
+            placeholder="Enter Helper's Number"
+            value={helperNumber}
+            onChange={(e) => setHelperNumber(e.target.value)}
           />
         </div>
 
