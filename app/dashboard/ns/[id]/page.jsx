@@ -73,6 +73,7 @@ const IndiNewsletter = ({params}) => {
                                                                 fill
                                                                 src={img}
                                                                 objectFit="cover"
+                                                                alt='pictures'
                                                             />
                                                         </div>
             

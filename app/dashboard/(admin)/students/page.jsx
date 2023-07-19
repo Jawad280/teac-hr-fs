@@ -82,33 +82,33 @@ const Students = () => {
           </div>  
 
           <div className="grid w-full max-w-sm items-center gap-3">
-            <Label htmlFor="dadName">Father's Name</Label>
-            <Input type="text" id="dadName" placeholder="Enter Father's Name" value={dadName} onChange={(e) => setDadName(e.target.value)} required/>
+            <Label htmlFor="dadName">Father&apos;s Name</Label>
+            <Input type="text" id="dadName" placeholder="Enter Father&apos;s Name" value={dadName} onChange={(e) => setDadName(e.target.value)} required/>
           </div>   
 
           <div className="grid w-full max-w-sm items-center gap-3">
-            <Label htmlFor="dadNumber">Father's Number</Label>
-            <Input type="text" id="dadNumber" placeholder="Enter Father's Number" value={dadNumber} onChange={(e) => setDadNumber(e.target.value)} required/>
+            <Label htmlFor="dadNumber">Father&apos;s Number</Label>
+            <Input type="text" id="dadNumber" placeholder="Enter Father&apos;s Number" value={dadNumber} onChange={(e) => setDadNumber(e.target.value)} required/>
           </div>
           
           <div className="grid w-full max-w-sm items-center gap-3">
-            <Label htmlFor="momName">Mother's Name</Label>
-            <Input type="text" id="momName" placeholder="Enter Mother's Name" value={momName} onChange={(e) => setMomName(e.target.value)} required/>
+            <Label htmlFor="momName">Mother&apos;s Name</Label>
+            <Input type="text" id="momName" placeholder="Enter Mother&apos;s Name" value={momName} onChange={(e) => setMomName(e.target.value)} required/>
           </div>   
 
           <div className="grid w-full max-w-sm items-center gap-3">
-            <Label htmlFor="momNumber">Father's Number</Label>
-            <Input type="text" id="momNumber" placeholder="Enter Mother's Number" value={momNumber} onChange={(e) => setMomNumber(e.target.value)} required/>
+            <Label htmlFor="momNumber">Father&apos;s Number</Label>
+            <Input type="text" id="momNumber" placeholder="Enter Mother&apos;s Number" value={momNumber} onChange={(e) => setMomNumber(e.target.value)} required/>
           </div>   
 
           <div className="grid w-full max-w-sm items-center gap-3">
-            <Label htmlFor="helperName">Helper's Name</Label>
-            <Input type="text" id="helperName" placeholder="Enter Helper's Name" value={helperName} onChange={(e) => setHelperName(e.target.value)} required/>
+            <Label htmlFor="helperName">Helper&apos;s Name</Label>
+            <Input type="text" id="helperName" placeholder="Enter Helper&apos;s Name" value={helperName} onChange={(e) => setHelperName(e.target.value)} required/>
           </div>   
 
           <div className="grid w-full max-w-sm items-center gap-3">
-            <Label htmlFor="helperNumber">Helper's Number</Label>
-            <Input type="text" id="helperNumber" placeholder="Enter Helper's Number" value={helperNumber} onChange={(e) => setHelperNumber(e.target.value)} required/>
+            <Label htmlFor="helperNumber">Helper&apos;s Number</Label>
+            <Input type="text" id="helperNumber" placeholder="Enter Helper&apos;s Number" value={helperNumber} onChange={(e) => setHelperNumber(e.target.value)} required/>
           </div> 
 
           <div className="grid w-full max-w-sm items-center gap-3">
