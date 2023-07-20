@@ -2,20 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-@page { size: A4;  margin: 0; padding: 0;}
+@page { size: A4;  margin: 0; }
+
 
 @media print {
-  * {
-    visibility: hidden; 
-  } 
-  
-  #print-content,
-  #print-content * {
-    visibility: visible;
-    print-color-adjust: exact;
-    margin: 0;
-    padding: 0;
-  }
+    body * {
+      visibility: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    #navbar {
+      display: none;
+    }
+    #print-content,
+    #print-content * {
+      visibility: visible;
+      print-color-adjust: exact;
+    }
 }
  
 @layer base {

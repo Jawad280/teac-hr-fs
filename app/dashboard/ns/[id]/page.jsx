@@ -33,20 +33,20 @@ const IndiNewsletter = ({params}) => {
     if (view) {
         return (
             <div className='box-border flex flex-col items-center relative w-full'>
-                <div className='top-40 box-border w-full flex justify-between items-center px-14 sticky z-50'>
+
+                <div className='top-20 box-border w-full flex justify-between items-center px-14 z-40 absolute'>
 
                     <div className='bg-slate-100 p-4 flex justify-center items-center cursor-pointer rounded-full hover:shadow-md hover:bg-slate-200 transition-all' onClick={() => setView(false)}>
                         <ArrowLeftIcon width={35} height={35} color='black'/>
                     </div>
 
-                    <div className='bg-blue-100 p-4 flex justify-center items-center cursor-pointer rounded-full hover:shadow-md hover:bg-blue-200 transition-all' onClick={() => window.print()}>
+                    <div className='bg-yellow-300 p-4 flex justify-center items-center cursor-pointer rounded-full hover:shadow-md hover:bg-yellow-200 transition-all' onClick={() => window.print()}>
                         <PrinterIcon width={35} height={35} color='black'/>
                     </div>
 
                 </div>
 
-
-                <div id='print-content' className='w-[21cm] flex flex-col items-center border box-border shadow-sm'>
+                <div  className='w-[21cm] box-border m-0 p-0 relative border' id='print-content'>
                     {
                         sortedSections?.map((sect) => (
                             <div key={sect.id} className='box-border w-full'>
@@ -63,7 +63,7 @@ const IndiNewsletter = ({params}) => {
                                 {
                                     sect.isImage && (
                                         splitArrayIntoChunks(sect.gallery, 9).map((arr, index) => (
-                                            <div className='box-border flex flex-col items-center h-[29.6cm] p-4 gap-6 w-full' key={index}>
+                                            <div className='box-border flex flex-col items-center justify-center h-[29.6cm] p-4 gap-6 w-full' key={index}>
                                                 <div className='font-bold text-[20px]'>{sect?.title}</div>
                                                 <div className='font-semibold text-[18px]'>{sect?.subtitle}</div>
                                                 <div className='flex flex-wrap gap-6 box-border justify-center'>
@@ -87,7 +87,7 @@ const IndiNewsletter = ({params}) => {
 
                                 {   !sect.isCover && !sect.isImage &&
                                     (
-                                        <div className='box-border flex flex-col items-center h-[14.8cm] px-12 py-10 gap-6 w-full'>
+                                        <div className='box-border flex flex-col items-center justify-center h-[14.8cm] px-12 py-8 gap-6 w-full'>
                                             <div className='font-bold text-[40px]'>{sect?.title}</div>
                                             <div className='font-semibold text-[30px] text-center' style={{ whiteSpace: 'pre-wrap' }}>{sect?.subtitle}</div>
                                             <div className='font-default text-[18px]' style={{ whiteSpace: 'pre-wrap' }}>{sect?.content}</div>
@@ -100,7 +100,6 @@ const IndiNewsletter = ({params}) => {
                     }
 
                 </div>
-
 
             </div>
         )
