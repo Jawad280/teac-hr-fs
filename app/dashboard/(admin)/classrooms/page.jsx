@@ -13,9 +13,9 @@ const Classrooms = () => {
   const currTeacher = session.data.user?.name;
 
   return (
-    <div className='flex flex-col box-border w-full px-16 mt-6 gap-6'>
+    <div className='flex flex-col items-center box-border w-4/5 min-w-[325px] mt-6 gap-6'>
 
-      <div className='flex gap-6 items-center box-border'>
+      <div className='flex gap-6 items-center justify-between box-border w-full'>
         <p className="text-[27px] font-bold">Classrooms</p>
         {currTeacher?.isAdmin && (
           <Link href={`${apiUrl}/dashboard/createClassroom`} className={buttonVariants({variant:'add'})}>
@@ -28,6 +28,7 @@ const Classrooms = () => {
       <div className='flex justify-start box-border w-full'>
         <ClassroomTable />
       </div>
+
     </div>
   )
 }

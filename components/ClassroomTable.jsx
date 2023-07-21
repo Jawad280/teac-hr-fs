@@ -27,7 +27,7 @@ const ClassroomTable = () => {
 
     if (!currTeacher?.isAdmin) {
       return (
-        <div className='box-border flex gap-8 flex-wrap justify-start'>
+        <div className='box-border w-full flex gap-8 flex-wrap justify-start'>
           {currTeacher?.classrooms?.map((classroom) => (
             <Link href={`${apiUrl}/dashboard/classrooms/${classroom.id}`} key={classroom.id}>
               <ClassroomCard classroom={classroom}/>
@@ -38,7 +38,7 @@ const ClassroomTable = () => {
     }
 
   return (
-    <div className='box-border flex gap-8 flex-wrap justify-start'>
+    <div className='box-border w-full flex gap-8 flex-wrap justify-start'>
       {data.map((classroom) => (
         <Link href={`${apiUrl}/dashboard/classrooms/${classroom.id}`} key={classroom.id}>
           <ClassroomCard classroom={classroom}/>
