@@ -138,7 +138,7 @@ const IndividualNewsletterPage = ({params}) => {
 
     if (data?.isCover) {
         return (
-            <div className='box-border w-3/5 flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm'>
+            <div className='box-border w-3/5 min-w-[400px] flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm'>
         
                 <div className='flex items-center justify-between gap-6 box-border w-full'>
                     <Button onClick={() => router.back()} variant={'back'} size={'icon'}>
@@ -185,7 +185,7 @@ const IndividualNewsletterPage = ({params}) => {
     if (data?.isImage) {
 
         return (
-            <div className='box-border w-3/5 flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm'>
+            <div className='box-border w-3/5 min-w-[400px] flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm'>
 
                 <div className='flex items-center justify-between gap-6 box-border w-full'>
                     <Button onClick={() => router.back()} variant={'back'} size={'icon'}>
@@ -223,7 +223,7 @@ const IndividualNewsletterPage = ({params}) => {
     }
 
   return (
-    <div className='box-border w-3/5 flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm'>
+    <div className='box-border w-3/5 min-w-[400px] flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm'>
 
         <div className='flex items-center justify-between gap-6 box-border w-full'>
             <Button onClick={() => router.back()} variant={'back'} size={'icon'}>

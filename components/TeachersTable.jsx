@@ -52,7 +52,7 @@ const TeachersTable = () => {
   const sortedTeachers = data?.sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <div className='box-border w-full'>
+    <div className='box-border w-full relative overflow-x-auto shadow-md'>
         <Table striped>
             <Table.Head>
                 <Table.HeadCell>
@@ -68,14 +68,10 @@ const TeachersTable = () => {
                     Phone Number
                 </Table.HeadCell>
                 <Table.HeadCell>
-                    <span className="sr-only">
                     Edit
-                    </span>
                 </Table.HeadCell>
                 <Table.HeadCell>
-                    <span className="sr-only">
                     Delete
-                    </span>
                 </Table.HeadCell>
             </Table.Head>
             <Table.Body className="divide-y">
@@ -91,27 +87,25 @@ const TeachersTable = () => {
                             </Link>
                         </Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                            <div>
-                                <AlertDialog>
-                                    <AlertDialogTrigger>
-                                        <Image src="/trash.svg" width={20} height={20} alt='delete'/>
-                                    </AlertDialogTrigger>
+                            <AlertDialog>
+                                <AlertDialogTrigger>
+                                    <Image src="/trash.svg" width={20} height={20} alt='delete'/>
+                                </AlertDialogTrigger>
 
-                                    <AlertDialogContent>
-                                        <AlertDialogHeader>
-                                            <AlertDialogTitle>Do you want to delete this Teacher ?</AlertDialogTitle>
-                                            <AlertDialogDescription>
-                                                This action cannot be undone. This will permanently delete {teacher.name} from the servers.
-                                            </AlertDialogDescription>
-                                        </AlertDialogHeader>
+                                <AlertDialogContent>
+                                    <AlertDialogHeader>
+                                        <AlertDialogTitle>Do you want to delete this Teacher ?</AlertDialogTitle>
+                                        <AlertDialogDescription>
+                                            This action cannot be undone. This will permanently delete {teacher.name} from the servers.
+                                        </AlertDialogDescription>
+                                    </AlertDialogHeader>
 
-                                        <AlertDialogFooter>
-                                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                            <AlertDialogAction onClick={() => handleDelete(teacher.id)}>Delete</AlertDialogAction>
-                                        </AlertDialogFooter>
-                                    </AlertDialogContent>
-                                </AlertDialog>
-                            </div>
+                                    <AlertDialogFooter>
+                                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                        <AlertDialogAction onClick={() => handleDelete(teacher.id)}>Delete</AlertDialogAction>
+                                    </AlertDialogFooter>
+                                </AlertDialogContent>
+                            </AlertDialog>
                         </Table.Cell>
                     </Table.Row>
                 ))}

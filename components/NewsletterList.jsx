@@ -52,7 +52,7 @@ const NewsletterList = ({ isAdmin }) => {
     }
 
   return (
-    <div className='box-border w-full'>
+    <div className='box-border w-full relative overflow-x-auto shadow-md'>
         <Table striped>
             <Table.Head>
                 <Table.HeadCell>
@@ -62,15 +62,11 @@ const NewsletterList = ({ isAdmin }) => {
                     Newsletter
                 </Table.HeadCell>
                 <Table.HeadCell>
-                    <span className="sr-only">
-                        View
-                    </span>
+                    View
                 </Table.HeadCell>
                 { isAdmin && (
                     <Table.HeadCell>
-                        <span className="sr-only">
-                            Delete
-                        </span>
+                        Delete
                     </Table.HeadCell>
                 )}
 

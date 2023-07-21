@@ -50,9 +50,9 @@ const ClassroomDisplay = ({classroom }) => {
     }
 
   return (
-    <div className='flex flex-col gap-6'>
+    <div className='flex flex-col gap-6 box-border w-full'>
 
-        <div className='flex justify-between items-center box-border'>
+        <div className='flex justify-between items-center box-border w-full'>
             <div className='flex flex-col gap-1 items-start'>
                 <p className="text-[18px] font-bold">Teacher</p>
                 <p className="text-[20px]">{teacher.name}</p>
@@ -91,13 +91,13 @@ const ClassroomDisplay = ({classroom }) => {
             </div>
         </div>
 
-        <div className='flex flex-col gap-6 box-border'>
+        <div className='flex flex-col gap-6 box-border w-full'>
 
             {currTeacher.isAdmin && (
-                <div className='flex gap-4 box-border justify-between'>
-                    <Button variant={'add'}>
+                <div className='flex gap-4 box-border justify-end'>
+                    {/* <Button variant={'add'}>
                         <PlusIcon className='mr-2 h-4 w-4'/> Add a Student
-                    </Button>
+                    </Button> */}
 
                     <AlertDialog>
                         <AlertDialogTrigger>
@@ -122,7 +122,7 @@ const ClassroomDisplay = ({classroom }) => {
             )}
 
             <StudentsTableAttendance students={students} date={today}/>
-        
+
         </div>
 
         

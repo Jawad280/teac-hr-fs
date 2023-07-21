@@ -51,7 +51,7 @@ const StudentTable = () => {
   const sortedStudents = data?.sort((a, b) => a.name.localeCompare(b.name));
 
   return (
-    <div className='box-border'>
+    <div className='box-border w-full relative overflow-x-auto shadow-md'>
         <Table striped>
             <Table.Head>
                 <Table.HeadCell>
@@ -85,14 +85,10 @@ const StudentTable = () => {
                     Address
                 </Table.HeadCell>
                 <Table.HeadCell>
-                    <span className="sr-only">
                     Edit
-                    </span>
                 </Table.HeadCell>
                 <Table.HeadCell>
-                    <span className="sr-only">
                     Delete
-                    </span>
                 </Table.HeadCell>
             </Table.Head>
             <Table.Body className="divide-y">

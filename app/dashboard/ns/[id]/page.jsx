@@ -106,7 +106,7 @@ const IndiNewsletter = ({params}) => {
     }
 
   return (
-    <div className='box-border flex flex-col items-center gap-6 mt-6 mb-8 w-3/5'>
+    <div className='box-border flex flex-col items-center gap-6 mt-6 mb-8 w-3/5 min-w-[400px]'>
 
         <div className='flex justify-between box-border items-center w-full'>
             <div className='font-bold text-[20px]'>

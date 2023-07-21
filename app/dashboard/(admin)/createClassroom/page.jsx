@@ -44,12 +44,12 @@ const CreateClassroomPage = () => {
   };
 
   return (
-    <div className="box-border w-1/5 flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm">
+    <div className="box-border flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm w-2/5 min-w-[400px]">
       <form
         className="flex flex-col items-center gap-6 box-border w-full"
         onSubmit={handleSubmit}
       >
-        <div className="grid w-full max-w-sm items-center gap-3">
+        <div className="grid w-full items-center gap-3 box-border">
           <div className="font-semibold text-base">Classroom Name</div>
           <Input
             type="name"
@@ -61,12 +61,12 @@ const CreateClassroomPage = () => {
           />
         </div>
 
-        <div className="grid w-full max-w-sm items-center gap-3">
+        <div className="grid w-full items-center gap-3 box-border">
           <div className="font-semibold text-base">Teacher</div>
           <SelectTeacher setTeacher={setTeacher} />
         </div>
 
-        <div className="grid w-full max-w-sm items-center gap-3">
+        <div className="grid w-full items-center gap-3 box-border">
           <div className="font-semibold text-base">Students</div>
           <SelectStudents
             setSelectedStudents={setSelectedStudents}

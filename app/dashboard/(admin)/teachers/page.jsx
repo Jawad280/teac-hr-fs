@@ -84,7 +84,7 @@ const Teachers = () => {
   }
 
   return (
-    <div className='box-border flex flex-col items-center gap-8 mt-6'>
+    <div className='box-border flex flex-col items-center gap-8 mt-6 w-3/5 min-w-[400px]'>
 
       <div className='flex justify-between items-center box-border w-full'>
         <p className="text-[27px] font-bold">Teachers</p>

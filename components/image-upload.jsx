@@ -19,8 +19,8 @@ const ImageUpload = ({disabled, onChange, onRemove, value}) => {
     };
 
   return (
-    <div className='box-border w-full'>
-        <div className='mb-4 flex items-center gap-4 box-border flex-wrap'>
+    <div className='box-border w-full flex flex-col items-center'>
+        <div className='mb-4 flex items-center justify-center gap-4 box-border flex-wrap max-sm:flex-col'>
             {value.map((url) => (
                 <div key={url} className='relative w-[200px] h-[200px] rounded-md'>
                     <div className='z-10 absolute top-2 right-2'>

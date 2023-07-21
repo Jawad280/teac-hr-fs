@@ -68,17 +68,6 @@ const Navbar = () => {
             Newsletters
           </Link>
 
-          <Link
-            href="/dashboard/resources"
-            className={
-              isActiveLink("/dashboard/resources")
-                ? buttonVariants({ variant: "linkChosen" })
-                : buttonVariants({ variant: "link" })
-            }
-          >
-            Resources
-          </Link>
-
           <Button
             className="flex gap-2 text-rose-400 ml-2"
             variant={"signout"}
@@ -126,17 +115,6 @@ const Navbar = () => {
           }
         >
           Newsletters
-        </Link>
-
-        <Link
-          href="/dashboard/resources"
-          className={
-            isActiveLink("/dashboard/resources")
-              ? buttonVariants({ variant: "linkChosen" })
-              : buttonVariants({ variant: "link" })
-          }
-        >
-          Resources
         </Link>
 
         <Link

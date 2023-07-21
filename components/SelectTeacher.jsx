@@ -42,23 +42,23 @@ const SelectTeacher = ({ setTeacher }) => {
   }));
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={open} onOpenChange={setOpen} className='box-border w-full'>
       <PopoverTrigger asChild>
         <Button
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="box-border justify-between"
+          className="box-border justify-between w-full"
         >
           {value ? value.name : "Select Teacher..."}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="box-border p-0">
+      <PopoverContent className="box-border p-0 w-full">
         <Command>
           <CommandInput
             placeholder="Search Teacher..."
-            className="outline-0 border-0"
+            className="outline-0 border-0 box-border w-full"
           />
           <CommandEmpty>No Teacher found.</CommandEmpty>
           <CommandGroup>
@@ -73,7 +73,7 @@ const SelectTeacher = ({ setTeacher }) => {
               >
                 <Check
                   className={cn(
-                    "mr-2 h-4 w-4",
+                    "mr-2 h-4 w-4 box-border",
                     value === teacher.value.id ? "opacity-100" : "opacity-0"
                   )}
                 />

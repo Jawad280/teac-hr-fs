@@ -57,12 +57,12 @@ const StudentCard = ({ student }) => {
   };
 
   return (
-    <div className="box-border flex flex-col items-center gap-8 bg-slate-100 rounded-lg shadow-sm">
+    <div className="box-border w-full flex flex-col items-center gap-8 bg-slate-100 rounded-lg">
       <form
-        className="flex flex-col items-center gap-6 box-border"
+        className="flex flex-col items-center gap-6 box-border w-full"
         onSubmit={handleUpdate}
       >
-        <div className="grid w-full max-w-sm items-center gap-3">
+        <div className="grid box-border w-full items-center gap-3">
           <Label htmlFor="name">Name</Label>
           <Input
             type="text"
@@ -73,7 +73,7 @@ const StudentCard = ({ student }) => {
           />
         </div>
 
-        <div className="grid w-full max-w-sm items-center gap-3">
+        <div className="grid box-border w-full items-center gap-3">
           <Label htmlFor="dob">Date of Birth</Label>
           <Input
             type="date"
@@ -84,7 +84,7 @@ const StudentCard = ({ student }) => {
         </div>
 
         <div className="box-border w-full flex gap-3">
-          <div className="grid w-full max-w-sm items-center gap-3">
+          <div className="grid box-border w-full items-center gap-3">
             <Label htmlFor="dadName">Father&apos;s Name</Label>
             <Input
               type="text"
@@ -95,7 +95,7 @@ const StudentCard = ({ student }) => {
             />
           </div>
 
-          <div className="grid w-full max-w-sm items-center gap-3">
+          <div className="grid box-border w-full items-center gap-3">
             <Label htmlFor="dadNumber">Father&apos;s Number</Label>
             <Input
               type="text"
@@ -108,52 +108,55 @@ const StudentCard = ({ student }) => {
         </div>
 
 
+        <div className="box-border w-full flex gap-3">
+          <div className="grid box-border w-full items-center gap-3">
+            <Label htmlFor="momName">Mother&apos;s Name</Label>
+            <Input
+              type="text"
+              id="momName"
+              placeholder="Enter Mother&apos;s Name"
+              value={momName}
+              onChange={(e) => setMomName(e.target.value)}
+            />
+          </div>
 
-        <div className="grid w-full max-w-sm items-center gap-3">
-          <Label htmlFor="momName">Mother&apos;s Name</Label>
-          <Input
-            type="text"
-            id="momName"
-            placeholder="Enter Mother&apos;s Name"
-            value={momName}
-            onChange={(e) => setMomName(e.target.value)}
-          />
+          <div className="grid box-border w-full items-center gap-3">
+            <Label htmlFor="momNumber">Mother&apos;s Number</Label>
+            <Input
+              type="text"
+              id="momNumber"
+              placeholder="Enter Mother&apos;s Number"
+              value={momNumber}
+              onChange={(e) => setMomNumber(e.target.value)}
+            />
+          </div>
         </div>
 
-        <div className="grid w-full max-w-sm items-center gap-3">
-          <Label htmlFor="momNumber">Mother&apos;s Number</Label>
-          <Input
-            type="text"
-            id="momNumber"
-            placeholder="Enter Mother&apos;s Number"
-            value={momNumber}
-            onChange={(e) => setMomNumber(e.target.value)}
-          />
+        <div className="box-border w-full flex gap-3">
+          <div className="grid box-border w-full items-center gap-3">
+            <Label htmlFor="helperName">Helper&apos;s Name</Label>
+            <Input
+              type="text"
+              id="helperName"
+              placeholder="Enter Helper&apos;s Name"
+              value={helperName}
+              onChange={(e) => setHelperName(e.target.value)}
+            />
+          </div>
+
+          <div className="grid box-border w-full items-center gap-3">
+            <Label htmlFor="helperNumber">Helper&apos;s Number</Label>
+            <Input
+              type="text"
+              id="helperNumber"
+              placeholder="Enter Helper&apos;s Number"
+              value={helperNumber}
+              onChange={(e) => setHelperNumber(e.target.value)}
+            />
+          </div>
         </div>
 
-        <div className="grid w-full max-w-sm items-center gap-3">
-          <Label htmlFor="helperName">Helper&apos;s Name</Label>
-          <Input
-            type="text"
-            id="helperName"
-            placeholder="Enter Helper&apos;s Name"
-            value={helperName}
-            onChange={(e) => setHelperName(e.target.value)}
-          />
-        </div>
-
-        <div className="grid w-full max-w-sm items-center gap-3">
-          <Label htmlFor="helperNumber">Helper&apos;s Number</Label>
-          <Input
-            type="text"
-            id="helperNumber"
-            placeholder="Enter Helper&apos;s Number"
-            value={helperNumber}
-            onChange={(e) => setHelperNumber(e.target.value)}
-          />
-        </div>
-
-        <div className="grid w-full max-w-sm items-center gap-3">
+        <div className="grid box-border w-full items-center gap-3">
           <Label htmlFor="address">Address</Label>
           <Input
             type="text"
