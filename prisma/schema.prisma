@@ -58,8 +58,6 @@ model Classroom {
   id        String    @id @default(uuid())
   name      String
   createdAt DateTime  @default(now())
-  // Teacher   Teacher?  @relation(fields: [teacherId], references: [id])
-  // teacherId String?
   teachers  Teacher[] @relation("ClassroomTeachers") // Many-to-many relation
   students  Student[] @relation()
   Teacher   Teacher?  @relation(fields: [teacherId], references: [id])
