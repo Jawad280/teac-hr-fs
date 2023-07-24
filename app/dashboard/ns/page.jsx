@@ -242,7 +242,7 @@ const NewsletterPage = () => {
   };
 
   return (
-    <div className="flex flex-col box-border w-2/5 min-w-[575px] px-16 mt-6 gap-6 items-center">
+    <div className="flex flex-col box-border w-3/5 min-w-[325px] px-16 mt-6 gap-6 items-center">
 
       <div className="flex gap-6 items-center box-border w-full justify-between">
         <p className="text-[27px] font-bold">Newsletters</p>
@@ -253,7 +253,7 @@ const NewsletterPage = () => {
           >
             <AlertDialogTrigger>
               <Button variant="add">
-                <PlusIcon className="mr-2 h-4 w-4" /> Add a Newsletter
+                <PlusIcon className="mr-2 h-4 w-4" />Newsletter
               </Button>
             </AlertDialogTrigger>
 

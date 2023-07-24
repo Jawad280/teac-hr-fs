@@ -51,7 +51,7 @@ const Teachers = () => {
 
   if (create) {
     return (
-      <div className='box-border w-1/5 flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm'>
+      <div className='box-border w-2/5 min-w-[325px] flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm'>
         <form 
           onSubmit={handleSubmit} 
           className='flex flex-col items-center gap-6 box-border w-full'
@@ -105,7 +105,7 @@ const Teachers = () => {
       <div className='flex justify-between items-center box-border w-full'>
         <p className="text-[27px] font-bold">Teachers</p>
         <Button onClick={() => setCreate(true)} variant="add">
-          <PlusIcon className='mr-2 h-4 w-4'/> Add Teacher
+          <PlusIcon className='mr-2 h-4 w-4'/> Teacher
         </Button>
       </div>
       

@@ -84,7 +84,7 @@ const CreateClassroomPage = () => {
           >
             Cancel
           </Link>
-          <Button type="submit">Create Classroom</Button>
+          <Button type="submit">Create</Button>
         </div>
       </form>
     </div>

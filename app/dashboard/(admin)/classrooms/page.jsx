@@ -19,7 +19,7 @@ const Classrooms = () => {
         <p className="text-[27px] font-bold">Classrooms</p>
         {currTeacher?.isAdmin && (
           <Link href={`${apiUrl}/dashboard/createClassroom`} className={buttonVariants({variant:'add'})}>
-            <PlusIcon className='mr-2 h-4 w-4'/> Add a Classroom
+            <PlusIcon className='mr-2 h-4 w-4'/> Classroom
           </Link>
         )}
 
