@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import { Button } from "../ui/button";
+import { Button } from "./ui/button";
 import { usePathname } from "next/navigation";
-import { buttonVariants } from "../ui/button";
+import { buttonVariants } from "./ui/button";
 import { signOut } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import { useState } from "react";
