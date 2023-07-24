@@ -16,7 +16,7 @@ const ClassroomCard: React.FC<ClassroomCardProps> = ({ classroom }) => {
           <div className="font-semibold text-[20px]">Teachers</div>
           <div className="flex flex-col items-center gap-3">
             {classroom.teachers.map((teacher) => (
-              <div>{teacher.name}</div>
+              <div key={teacher.id}>{teacher.name}</div>
             ))}
           </div>
         </div>
