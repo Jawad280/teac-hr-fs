@@ -1,8 +1,8 @@
 "use client";
-import SelectTeacher from "@/components/SelectTeacher";
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import SelectStudents from "@/components/SelectStudents";
+import SelectTeachers from "@/components/SelectTeachers";
 import { Button } from "@/components/ui/button";
 import { buttonVariants } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
@@ -11,7 +11,7 @@ import Link from "next/link";
 const CreateClassroomPage = () => {
   const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
   const router = useRouter();
-  const [teacher, setTeacher] = useState("");
+  const [teachers, setTeachers] = useState([]);
   const [selectedStudents, setSelectedStudents] = useState([]);
   const [name, setName] = useState("");
 
@@ -21,8 +21,8 @@ const CreateClassroomPage = () => {
 
     const newClassroom = {
       name: name,
-      teacherId: teacher.id,
-      students: selectedStudents.map((student) => ({ id: student.id })), // Create an array of student objects with their ids
+      teacherIds: teachers.map((t) => t.id),
+      studentIds: selectedStudents.map((student) => student.id), // Create an array of student objects with their ids
     };
 
     try {
@@ -35,7 +35,7 @@ const CreateClassroomPage = () => {
       }).then(() => {
         setName("");
         setSelectedStudents([]);
-        setTeacher("");
+        setTeachers([]);
         router.push("/dashboard/classrooms");
       });
     } catch (error) {
@@ -44,7 +44,7 @@ const CreateClassroomPage = () => {
   };
 
   return (
-    <div className="box-border flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm w-2/5 min-w-[400px]">
+    <div className="box-border flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm w-2/5 min-w-[325px]">
       <form
         className="flex flex-col items-center gap-6 box-border w-full"
         onSubmit={handleSubmit}
@@ -62,8 +62,11 @@ const CreateClassroomPage = () => {
         </div>
 
         <div className="grid w-full items-center gap-3 box-border">
-          <div className="font-semibold text-base">Teacher</div>
-          <SelectTeacher setTeacher={setTeacher} />
+          <div className="font-semibold text-base">Teachers</div>
+            <SelectTeachers 
+              setTeachers={setTeachers} 
+              teachers={teachers} 
+            />
         </div>
 
         <div className="grid w-full items-center gap-3 box-border">

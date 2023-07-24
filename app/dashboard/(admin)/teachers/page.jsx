@@ -52,15 +52,31 @@ const Teachers = () => {
   if (create) {
     return (
       <div className='box-border w-1/5 flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm'>
-        <form onSubmit={handleSubmit} className='flex flex-col items-center gap-6 box-border w-full'>
+        <form 
+          onSubmit={handleSubmit} 
+          className='flex flex-col items-center gap-6 box-border w-full'
+        >
           <div className="grid w-full max-w-sm items-center gap-3">
             <Label htmlFor="name">Name</Label>
-            <Input type="name" id="name" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)} required/>
+            <Input 
+              type="name" 
+              id="name" 
+              placeholder="Enter Name" 
+              value={name} 
+              onChange={(e) => setName(e.target.value)} 
+              required
+            />
           </div> 
 
           <div className="grid w-full max-w-sm items-center gap-3">
             <Label htmlFor="phone">Phone Number</Label>
-            <Input type="text" id="phone" placeholder="Enter Phone Number" value={phone} onChange={(e) => setPhone(e.target.value)} required/>
+            <Input 
+              type="text" 
+              id="phone" 
+              placeholder="Enter Phone Number" 
+              value={phone} 
+              onChange={(e) => setPhone(e.target.value)} required
+            />
           </div>  
 
           <div className="grid w-full max-w-sm items-center gap-3">
@@ -84,7 +100,7 @@ const Teachers = () => {
   }
 
   return (
-    <div className='box-border flex flex-col items-center gap-8 mt-6 w-3/5 min-w-[400px]'>
+    <div className='box-border flex flex-col items-center gap-8 mt-6 w-3/5 min-w-[325px]'>
 
       <div className='flex justify-between items-center box-border w-full'>
         <p className="text-[27px] font-bold">Teachers</p>

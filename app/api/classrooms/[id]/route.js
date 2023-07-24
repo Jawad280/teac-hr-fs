@@ -15,7 +15,7 @@ export async function GET(req, {params}) {
                     attendances: true // Include the attendance relation
                 }
             },
-            Teacher: true
+            teachers: true
         }
     });
     return NextResponse.json(classroom);

@@ -22,7 +22,7 @@ const ClassroomIndividual = ({params}) => {
     }
 
     return (
-      <div className='box-border mt-6 w-3/5 min-w-[400px]'>
+      <div className='box-border mt-6 w-3/5 min-w-[325px]'>
         <ClassroomDisplay classroom={data}/>
       </div>
     )

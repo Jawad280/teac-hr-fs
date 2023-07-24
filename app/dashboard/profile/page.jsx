@@ -39,7 +39,7 @@ const ProfilePage = () => {
     };
 
   return (
-    <div className="box-border w-1/5 flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm">
+    <div className="box-border w-1/5 min-w-[325px] flex flex-col items-center gap-8 mt-6 bg-slate-100 rounded-lg p-10 shadow-sm">
       <form
         className="flex flex-col items-center gap-6 box-border w-full"
         onSubmit={handleUpdate}

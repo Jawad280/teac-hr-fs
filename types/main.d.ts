@@ -2,7 +2,7 @@ export type Classroom = {
     id: string
     name: string
     teacherId: string
-    Teacher: Teacher
+    teachers: Teacher[]
     students: Student[]
     attendances: Attendance[]
     createdAt: Date

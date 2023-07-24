@@ -21,7 +21,8 @@ model Teacher {
   password   String
   isAdmin    Boolean?
   createdAt  DateTime    @default(now())
-  classrooms Classroom[] @relation()
+  classrooms Classroom[] @relation("ClassroomTeachers") // Many-to-many relation
+  Classroom  Classroom[]
 }
 
 model Resource {
@@ -57,9 +58,12 @@ model Classroom {
   id        String    @id @default(uuid())
   name      String
   createdAt DateTime  @default(now())
+  // Teacher   Teacher?  @relation(fields: [teacherId], references: [id])
+  // teacherId String?
+  teachers  Teacher[] @relation("ClassroomTeachers") // Many-to-many relation
+  students  Student[] @relation()
   Teacher   Teacher?  @relation(fields: [teacherId], references: [id])
   teacherId String?
-  students  Student[] @relation()
 }
 
 model Student {

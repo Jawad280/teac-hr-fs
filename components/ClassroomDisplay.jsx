@@ -17,11 +17,12 @@ import {
 import { useRouter } from 'next/navigation';
 import { mutate } from 'swr';
 import { useSession } from 'next-auth/react';
+import SelectStudents from "@/components/SelectStudents";
 
 const ClassroomDisplay = ({classroom }) => {
     const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
     const router = useRouter();
-    const teacher = classroom.Teacher;
+    const teachers = classroom.teachers;
     const students = classroom.students?.sort((a, b) => a.name.localeCompare(b.name));
 
     const session = useSession();
@@ -29,6 +30,8 @@ const ClassroomDisplay = ({classroom }) => {
     const currTeacher = session.data.user?.name;
 
     const [today, setToday] = useState(new Date());
+    const [addStu, setAddStu] = useState(false);
+    const [selectedStudents, setSelectedStudents] = useState([]);
 
     const handleDeleteClassroom = async (e) => {
         e.preventDefault();
@@ -49,13 +52,55 @@ const ClassroomDisplay = ({classroom }) => {
         }
     }
 
+    const handleAddStu = async (e) => {
+        e.preventDefault();
+
+        try {
+            const inputs = {
+                students: {
+                    connect: selectedStudents.map((student) => ({ id: student.id })),
+                },
+            };
+
+            const res = await fetch(`${apiUrl}/api/classrooms/${classroom.id}`, {
+                method: 'PATCH',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(inputs)
+              }).then(() => {
+                mutate(`${apiUrl}/api/classrooms`)
+                router.push('/dashboard/classrooms');
+              })
+        } catch(error) {
+            console.log(error);
+        }
+    }
+
+    if (addStu) {
+        return (
+            <div className='flex flex-col gap-6 box-border w-full'>
+                Add Student
+
+                <SelectStudents selectedStudents={selectedStudents} setSelectedStudents={setSelectedStudents}/>
+
+                <div className='flex justify-between box-border w-full'>
+                    <Button onClick={() => setAddStu(false)}>Cancel</Button>
+                    <Button onClick={handleAddStu}>Submit</Button>
+                </div>
+            </div>
+        )
+    }
+
   return (
     <div className='flex flex-col gap-6 box-border w-full'>
 
         <div className='flex justify-between items-center box-border w-full'>
             <div className='flex flex-col gap-1 items-start'>
-                <p className="text-[18px] font-bold">Teacher</p>
-                <p className="text-[20px]">{teacher.name}</p>
+                <p className="text-[18px] font-bold">Teachers</p>
+                <p className="text-[20px]">{teachers.map((t) => (
+                    <p key={t.id}>{t.name}</p>
+                ))}</p>
             </div>
 
             <div className='flex flex-col gap-1 items-start'>
@@ -94,10 +139,10 @@ const ClassroomDisplay = ({classroom }) => {
         <div className='flex flex-col gap-6 box-border w-full'>
 
             {currTeacher.isAdmin && (
-                <div className='flex gap-4 box-border justify-end'>
-                    {/* <Button variant={'add'}>
+                <div className='flex gap-4 box-border justify-between'>
+                    <Button variant={'add'} onClick={() => setAddStu(true)}>
                         <PlusIcon className='mr-2 h-4 w-4'/> Add a Student
-                    </Button> */}
+                    </Button>
 
                     <AlertDialog>
                         <AlertDialogTrigger>
