@@ -18,6 +18,9 @@ export default function DashboardLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={font.className}>
         <AuthProvider>{children}</AuthProvider>
         <Toaster />
