@@ -161,12 +161,12 @@ const Students = () => {
   }
 
   return (
-    <div className='box-border flex flex-col items-center gap-8 mt-6 w-[90%] min-w-[325px]'>
+    <div className='box-border flex flex-col items-center gap-8 mt-6 w-1/5 min-w-[325px]'>
 
       <div className='flex justify-between items-center box-border w-full'>
         <p className="text-[27px] font-bold">Students</p>
         <Button onClick={() => setCreate(true)} variant="add">
-          <PlusIcon className='mr-2 h-4 w-4'/> Add Student
+          <PlusIcon className='mr-2 h-4 w-4'/> Student
         </Button>
       </div>
 

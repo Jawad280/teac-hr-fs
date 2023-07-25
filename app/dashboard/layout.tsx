@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
@@ -21,14 +22,19 @@ export default function DashboardLayout({
 
   if (session.status === "authenticated") {
     return (
-      <div className="flex flex-col items-center gap-0 m-0 p-0">
+      <div className="flex flex-col items-center min-h-screen gap-0 m-0 p-0">
         <div
           className="sticky top-0 z-50 flex flex-col items-center box-border w-full"
           id="navbar"
         >
           <Navbar />
         </div>
-        {children}
+
+        <div className="flex flex-col items-center box-border w-full flex-grow">
+          {children}
+        </div>
+
+        <Footer />
       </div>
     );
   }

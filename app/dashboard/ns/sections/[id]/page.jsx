@@ -256,13 +256,12 @@ const IndividualNewsletterPage = ({params}) => {
                     cols="30" 
                     rows="10" 
                     className='border-slate-300 rounded-lg'
-                    value={content.replace(/ /g, '\u00A0').replace(/\n/g, '\n')}
-                    onChange={(e) => setContent(e.target.value.replace(/\u00A0/g, ' '))}
+                    value={content}
+                    onChange={(e) => setContent(e.target.value)}
                 />
             </div>   
 
             <Button type='submit'>Update Section</Button>
-
     
         </form>
 

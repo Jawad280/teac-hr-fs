@@ -15,6 +15,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog";
+import { MailIcon, PhoneIcon } from 'lucide-react';
 
 const TeachersTable = () => {
 
@@ -58,10 +59,10 @@ const TeachersTable = () => {
                 <Table.HeadCell>
                     S/N
                 </Table.HeadCell>
-                <Table.HeadCell>
+                <Table.HeadCell className='text-center'>
                     Name
                 </Table.HeadCell>
-                <Table.HeadCell>
+                {/* <Table.HeadCell>
                     Email
                 </Table.HeadCell>
                 <Table.HeadCell>
@@ -72,14 +73,63 @@ const TeachersTable = () => {
                 </Table.HeadCell>
                 <Table.HeadCell>
                     Delete
-                </Table.HeadCell>
+                </Table.HeadCell> */}
             </Table.Head>
             <Table.Body className="divide-y">
                 {sortedTeachers.filter((x) => !x.isAdmin).map((teacher, index) => (
                     <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={teacher.id}>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{index+1}</Table.Cell>
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{teacher.name}</Table.Cell>
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{teacher.email}</Table.Cell>
+                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                        
+                            <div className='flex flex-col items-center gap-4'>
+                                <p className='font-bold text-lg'>{teacher.name}</p>
+                                <div className='flex flex-col items-start gap-6'>
+
+                                    <div className='flex items-center gap-2'>
+                                        <MailIcon width={20} height={20}/>
+                                        {teacher.email}
+                                    </div>
+
+                                    <div className='flex items-center gap-2'>
+                                        <PhoneIcon width={20} height={20}/>
+                                        +65 {teacher.phone}
+                                    </div>
+
+                                    <div className='flex items-center gap-2 justify-between box-border w-full'>
+                                        <div className='flex items-center gap-2'>
+                                            <Link href={`${apiUrl}/dashboard/teachers/${teacher.id}`}>
+                                                <Image src="/edit-black.svg" width={25} height={25} alt='edit'/>
+                                            </Link>
+                                        </div>
+
+                                        <div className='flex items-center gap-2'>
+                                            <AlertDialog>
+                                                <AlertDialogTrigger>
+                                                    <Image src="/trash.svg" width={25} height={25} alt='delete'/>
+                                                </AlertDialogTrigger>
+
+                                                <AlertDialogContent>
+                                                    <AlertDialogHeader>
+                                                        <AlertDialogTitle>Do you want to delete this Teacher ?</AlertDialogTitle>
+                                                        <AlertDialogDescription>
+                                                            This action cannot be undone. This will permanently delete {teacher.name} from the servers.
+                                                        </AlertDialogDescription>
+                                                    </AlertDialogHeader>
+
+                                                    <AlertDialogFooter>
+                                                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                                        <AlertDialogAction onClick={() => handleDelete(teacher.id)}>Delete</AlertDialogAction>
+                                                    </AlertDialogFooter>
+                                                </AlertDialogContent>
+                                            </AlertDialog>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        
+                        </Table.Cell>
+                        {/* <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{teacher.email}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{teacher.phone}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                             <Link href={`${apiUrl}/dashboard/teachers/${teacher.id}`}>
@@ -106,7 +156,7 @@ const TeachersTable = () => {
                                     </AlertDialogFooter>
                                 </AlertDialogContent>
                             </AlertDialog>
-                        </Table.Cell>
+                        </Table.Cell> */}
                     </Table.Row>
                 ))}
 

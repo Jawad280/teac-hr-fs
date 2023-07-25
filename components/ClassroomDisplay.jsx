@@ -141,7 +141,7 @@ const ClassroomDisplay = ({classroom }) => {
             {currTeacher.isAdmin && (
                 <div className='flex gap-4 box-border justify-between'>
                     <Button variant={'add'} onClick={() => setAddStu(true)}>
-                        <PlusIcon className='mr-2 h-4 w-4'/> Add a Student
+                        <PlusIcon className='mr-2 h-4 w-4'/> Student
                     </Button>
 
                     <AlertDialog>

@@ -32,7 +32,7 @@ const Navbar = () => {
 
     if (mobile) {
       return (
-        <nav className="flex w-full p-6 bg-white shadow-sm justify-between">
+        <nav className="flex box-border w-full py-6 px-12 bg-white shadow-sm justify-between">
           <Link href="/dashboard/classrooms" className=" font-bold text-[22px]">
             TeacHR
           </Link>

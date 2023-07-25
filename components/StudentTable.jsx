@@ -15,6 +15,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import StudentTableCard from "@/components/StudentTableCard"
 
 const StudentTable = () => {
   const apiUrl = process.env.NEXT_PUBLIC_SITE_URL;
@@ -57,10 +58,10 @@ const StudentTable = () => {
                 <Table.HeadCell>
                     S/N
                 </Table.HeadCell>
-                <Table.HeadCell>
-                    Name
+                <Table.HeadCell className='text-center'>
+                    Student
                 </Table.HeadCell>
-                <Table.HeadCell>
+                {/* <Table.HeadCell>
                     Date Of Birth
                 </Table.HeadCell>
                 <Table.HeadCell>
@@ -83,28 +84,60 @@ const StudentTable = () => {
                 </Table.HeadCell>
                 <Table.HeadCell>
                     Address
-                </Table.HeadCell>
-                <Table.HeadCell>
+                </Table.HeadCell> */}
+                {/* <Table.HeadCell>
                     Edit
                 </Table.HeadCell>
                 <Table.HeadCell>
                     Delete
-                </Table.HeadCell>
+                </Table.HeadCell> */}
             </Table.Head>
             <Table.Body className="divide-y">
                 {sortedStudents.map((student, index) => (
                     <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800" key={student.id}>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{index+1}</Table.Cell>
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.name}</Table.Cell>
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{new Date(student.dob).toLocaleString('en-GB', { timeZone: 'UTC', day: '2-digit', month: '2-digit', year: 'numeric' })}</Table.Cell>
+                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                            <div className='flex flex-col items-start gap-4'>
+
+                                <StudentTableCard student={student} />
+
+                                <div className='flex items-center box-border p-2 justify-between w-full'>
+                                    <Link href={`${apiUrl}/dashboard/students/${student.id}`}>
+                                        <Image src="/edit-black.svg" width={20} height={20} alt='edit'/>
+                                    </Link>
+
+                                    <AlertDialog>
+                                        <AlertDialogTrigger>
+                                            <Image src="/trash.svg" width={20} height={20} alt='delete'/>
+                                        </AlertDialogTrigger>
+
+                                        <AlertDialogContent>
+                                            <AlertDialogHeader>
+                                                <AlertDialogTitle>Do you want to delete this Student ?</AlertDialogTitle>
+                                                <AlertDialogDescription>
+                                                    This action cannot be undone. This will permanently delete {student.name} from the servers.
+                                                </AlertDialogDescription>
+                                            </AlertDialogHeader>
+
+                                            <AlertDialogFooter>
+                                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                                <AlertDialogAction onClick={() => handleDelete(student.id)}>Delete</AlertDialogAction>
+                                            </AlertDialogFooter>
+                                        </AlertDialogContent>
+                                    </AlertDialog>
+                                </div>
+                            </div>
+
+                        </Table.Cell>
+                        {/* <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{new Date(student.dob).toLocaleString('en-GB', { timeZone: 'UTC', day: '2-digit', month: '2-digit', year: 'numeric' })}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.dadName}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.dadNumber}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.momName}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.momNumber}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.helperName}</Table.Cell>
                         <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.helperNumber}</Table.Cell>
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.address}</Table.Cell>
-                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
+                        <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">{student.address}</Table.Cell> */}
+                        {/* <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                             <Link href={`${apiUrl}/dashboard/students/${student.id}`}>
                                 <Image src="/edit-black.svg" width={20} height={20} alt='edit'/>
                             </Link>
@@ -131,7 +164,7 @@ const StudentTable = () => {
                                     </AlertDialogContent>
                                 </AlertDialog>
                             </div>
-                        </Table.Cell>
+                        </Table.Cell> */}
                     </Table.Row>
                 ))}
 

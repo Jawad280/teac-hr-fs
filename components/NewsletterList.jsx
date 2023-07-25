@@ -3,7 +3,6 @@ import React from 'react'
 import { Table } from 'flowbite-react';
 import useSWR, { mutate } from 'swr';
 import Link from 'next/link';
-import Image from 'next/image';
 import { BookOpenIcon } from 'lucide-react';
 import {
     AlertDialog,
@@ -86,7 +85,6 @@ const NewsletterList = ({ isAdmin }) => {
                                 <div>
                                     <AlertDialog>
                                         <AlertDialogTrigger>
-                                            {/* <Image src="/trash.svg" width={20} height={20} alt='delete'/> */}
                                             <Trash2 width={22} height={22} color='red'/>
                                         </AlertDialogTrigger>
 
