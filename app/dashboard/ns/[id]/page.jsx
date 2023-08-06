@@ -6,8 +6,10 @@ import SectionCard from "@/components/SectionCard";
 import Link from "next/link";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { PrinterIcon } from "lucide-react";
+import { Link1Icon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useToast } from "@/components/ui/use-toast";
 
 const IndiNewsletter = ({ params }) => {
   const id = params.id;
@@ -18,6 +20,8 @@ const IndiNewsletter = ({ params }) => {
     fetcher
   );
   const router = useRouter();
+
+  const { toast } = useToast();
 
   const [view, setView] = useState(false);
 
@@ -32,10 +36,32 @@ const IndiNewsletter = ({ params }) => {
     return chunks;
   }
 
+  const handleLink = () => {
+    const link = `${apiUrl}/newsletter/${id}`;
+
+    navigator.clipboard
+      .writeText(link)
+      .then(() => {
+        toast({
+          title: "Success",
+          description:
+            "Newsletter Link has been generated and copied to clipboard",
+          variant: "success",
+        });
+      })
+      .catch((e) => {
+        toast({
+          title: "Error",
+          description: "Something went wrong",
+          variant: "destructive",
+        });
+      });
+  };
+
   if (view) {
     return (
       <div className="box-border flex flex-col items-center relative w-full">
-        <div className="top-20 box-border w-full flex justify-between items-center px-14 z-40 absolute">
+        <div className="top-20 box-border w-full flex flex-col justify-center items-start px-14 z-40 absolute gap-8">
           <div
             className="bg-slate-100 p-4 flex justify-center items-center cursor-pointer rounded-full hover:shadow-md hover:bg-slate-200 transition-all"
             onClick={() => setView(false)}
@@ -48,6 +74,13 @@ const IndiNewsletter = ({ params }) => {
             onClick={() => window.print()}
           >
             <PrinterIcon width={35} height={35} color="black" />
+          </div>
+
+          <div
+            className="bg-sky-300 p-4 flex justify-center items-center cursor-pointer rounded-full hover:shadow-md hover:bg-sky-200 transition-all"
+            onClick={handleLink}
+          >
+            <Link1Icon width={35} height={35} color="black" />
           </div>
         </div>
 
