@@ -35,7 +35,7 @@ const PublicNewsletter = ({ params }) => {
         </div>
       </div> */}
 
-      <div className="box-border m-0 p-0 relative border min-w-[325px] w-4/5">
+      <div className="box-border m-0 p-0 relative min-w-[325px] w-4/5">
         {sortedSections?.map((sect) => (
           <div key={sect.id} className="box-border w-full">
             {sect.isCover && (
