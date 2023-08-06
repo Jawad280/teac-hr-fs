@@ -26,21 +26,14 @@ const PublicNewsletter = ({ params }) => {
 
   return (
     <div className="box-border flex flex-col items-center relative w-full">
-      {/* <div className="top-20 box-border w-full flex justify-between items-center px-14 z-40 absolute">
-        <div
-          className="bg-yellow-300 p-4 flex justify-center items-center cursor-pointer rounded-full hover:shadow-md hover:bg-yellow-200 transition-all"
-          onClick={() => window.print()}
-        >
-          <PrinterIcon width={35} height={35} color="black" />
-        </div>
-      </div> */}
-
-      <div className="box-border m-0 p-0 relative min-w-[325px] w-4/5 flex flex-col items-center">
+      <div className="box-border m-0 p-0 relative min-w-[325px] w-full flex flex-col items-center">
         {sortedSections?.map((sect) => (
           <div key={sect.id} className="box-border w-full">
             {sect.isCover && (
               <div className="box-border flex flex-col items-center p-4 gap-6 justify-center w-full">
-                <div className="font-bold text-[45px]">{sect?.title}</div>
+                <div className="font-bold text-[45px] box-border w-full flex flex-col items-center">
+                  {sect?.title}
+                </div>
                 <Image width={400} height={400} alt="logo" src="/logo.svg" />
                 <div className="font-semibold text-[25px]">
                   {" "}
@@ -76,7 +69,9 @@ const PublicNewsletter = ({ params }) => {
 
             {!sect.isCover && !sect.isImage && (
               <div className="box-border flex flex-col items-center justify-center min-h-[14.8cm] gap-6 w-full">
-                <div className="font-bold text-[40px]">{sect?.title}</div>
+                <div className="font-bold text-[40px] text-center">
+                  {sect?.title}
+                </div>
                 <div
                   className="font-semibold text-[30px] text-center"
                   style={{ whiteSpace: "pre-wrap" }}
