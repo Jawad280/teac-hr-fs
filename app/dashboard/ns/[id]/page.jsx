@@ -10,6 +10,7 @@ import { Link1Icon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useToast } from "@/components/ui/use-toast";
+import { CldImage } from "next-cloudinary";
 
 const IndiNewsletter = ({ params }) => {
   const id = params.id;
@@ -114,12 +115,12 @@ const IndiNewsletter = ({ params }) => {
                     <div className="flex flex-wrap gap-6 box-border justify-center">
                       {arr.map((img, index) => (
                         <div key={index} className="relative w-[5cm] h-[7cm]">
-                          <Image
-                            fill
+                          <CldImage 
+                            width={500}
+                            height={700}
+                            crop="fill"
+                            alt="picture"
                             src={img}
-                            objectFit="cover"
-                            alt="pictures"
-                            quality="low"
                           />
                         </div>
                       ))}
